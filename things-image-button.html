@@ -1,0 +1,45 @@
+<!--
+button with image
+
+Example:
+
+	<things-image-button  
+	  item = "[[item]]"
+	  image-src ="[[_computeIconpath(item.icon_path)]]">
+	</things-image-button>
+
+@demo demo/index.html
+-->
+
+<dom-module id="things-image-button">
+	<template>
+		<style>
+			:host {
+				display: block;
+			}
+		</style>
+		<image  data$="[[item]]"
+                on-tap="_onImageTap"
+                src="[[imageSrc]]">
+        </image>
+        <p>[[item.title]]</p>
+
+	</template>
+	<script>
+		Polymer({
+			is: 'things-image-button',
+			properties:{
+				item : {
+					type: Object
+				},
+				imageSrc : {
+					type: String
+				}
+			},
+			_onImageTap : function (e) {
+				var data = JSON.parse(this.currentTarget.getAttribute("data"));
+				this.fire('things-image-button-tap',data);	 
+			}
+		});
+	</script>
+</dom-module>
