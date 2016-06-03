@@ -5,6 +5,7 @@ Example:
 
 	<things-image-button  
 	  item = "[[item]]"
+	  title ="[[title]]"
 	  image-src ="[[_computeIconpath(item.icon_path)]]">
 	</things-image-button>
 
@@ -16,13 +17,25 @@ Example:
 		<style>
 			:host {
 				display: block;
+				padding-top:10px;
+				min-height: 100px;
+				border-bottom:1px solid rgba(0,0,0,.1);
+				text-align:center;
+				color:rgba(255,255,255,.6);
+			}
+			:focus{
+				outline:none;
+			}
+			img{
+				display:block;
+				margin:auto;
 			}
 		</style>
-		<image  data$="[[item]]"
+		<img data$="[[item]]"
                 on-tap="_onImageTap"
                 src="[[imageSrc]]">
-        </image>
-        <p>[[item.title]]</p>
+        </img>
+        [[title]]
 
 	</template>
 	<script>
@@ -32,12 +45,15 @@ Example:
 				item : {
 					type: Object
 				},
+				title:{
+					type: String
+				},
 				imageSrc : {
 					type: String
 				}
 			},
 			_onImageTap : function (e) {
-				var data = JSON.parse(this.currentTarget.getAttribute("data"));
+				var data = JSON.parse(e.currentTarget.getAttribute("data"));
 				this.fire('things-image-button-tap',data);	 
 			}
 		});
