@@ -1,25 +1,60 @@
 <!doctype html>
 <!--
 @license
-Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+Copyright (c) 2016 The Things Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at https://github.com/ThingsElements/things-trisate-radio/LICENSE.txt
+The complete set of authors may be found at https://github.com/ThingsElements/things-trisate-radio/AUTHORS.txt
+The complete set of contributors may be found at https://github.com/ThingsElements/things-trisate-radio/CONTRIBUTORS.txt
+Code distributed by Hatiolab as part of the things project is also
+subject to an additional IP rights grant found at https://github.com/ThingsElements/things-trisate-radio/PATENTS.txt
 -->
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-    <title>things-image-button Demo</title>
-    <script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
-    <link rel="import" href="../things-image-button.html">
-  </head>
-  <body unresolved>
+<head>
 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <title>things-trisate-radio demo</title>
+  <script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
+  <link rel="import" href="../../polymer/polymer.html">
+  <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+  <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+  <link rel="import" href="../../paper-button/paper-button.html">
+  <link rel="import" href="../things-image-button.html">
+</head>
 
-    </script>
+<body unresolved>
+  <demo-snippet class="centered-demo">
+    <template>
+<sample-image-button></sample-image-button>
+    <dom-module id="sample-image-button">
+      <template>
+        <things-image-button  id="imagebutton" item ="[[item]]" title ="[[title]]" image-src ="[[imagepath]]">
+        </things-image-button>
+         Data: [[imagedata]]
+      </template>
+      <script>
+        Polymer({
+          is: 'sample-image-button',
+          ready:function(){
+               this.imagepath="./image1.png",
+               this.title="Pokemon",
+               this.item={
+                   name:"Bee",
+                   color:"yellow"
+               }
+             },
+             listeners: {
+               'imagebutton.things-image-button-tap': "imageTap",
+             },
+             imageTap:function(event){
+               console.log(event);
+               this.imagedata= JSON.stringify(event.detail);
+             }
+        });
+      </script>
+    </dom-module>
+    </template>
+  </demo-snippet>
 
-  </body>
+</body>
 </html>
