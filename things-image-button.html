@@ -98,6 +98,10 @@
 					type: String
 				}
 			},
+			/**
+			 * image 클릭시 things-image-button-tap 이벤트 발생하고 data값을 보낸다.
+			 * @event things-image-button-tap
+			 */
 			_onImageTap : function (e) {
 				var data = JSON.parse(e.currentTarget.getAttribute("data"));
 				this.fire('things-image-button-tap',data);
