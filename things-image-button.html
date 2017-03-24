@@ -3,14 +3,14 @@ button with image
 
 Example:
 
-	<things-image-button  
-	  item = "[[item]]"
-	  title ="[[title]]"
-	  image-src ="[[_computeIconpath(item.icon_path)]]">
-	</things-image-button>
+```html
+		<things-image-button item = "[[item]]" title ="[[title]]" image-src ="[[_computeIconpath(item.icon_path)]]">
+		</things-image-button>
+```
 
 @demo demo/index.html
 -->
+<link rel="import" href="../polymer/polymer.html">
 
 <dom-module id="things-image-button">
 	<template>
@@ -34,8 +34,8 @@ Example:
 		<img data$="[[item]]"
                 on-tap="_onImageTap"
                 src="[[imageSrc]]">
-        </img>
-        [[title]]
+    </img>
+    [[title]]
 
 	</template>
 	<script>
@@ -54,7 +54,7 @@ Example:
 			},
 			_onImageTap : function (e) {
 				var data = JSON.parse(e.currentTarget.getAttribute("data"));
-				this.fire('things-image-button-tap',data);	 
+				this.fire('things-image-button-tap',data);
 			}
 		});
 	</script>
