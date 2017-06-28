@@ -1,42 +1,44 @@
-## things-image-button
-이미지 클릭하여 data 호출하는 컴퍼넌트.
+# things-image-button
 
-### Example:
+##이미지 클릭하여 data 호출하는 컴퍼넌트.
+
+Example:
 
 ```html
-		<things-image-button item="[[item]]" title="[[title]]" image-src="[[imagepath]]">
-		</things-image-button>
+	<things-image-button item="[[item]]" title="[[title]]" image-src="[[imagepath]]">
+	</things-image-button>
 ```
 ### Detail:
 ```html
-			   <sample-image-button></sample-image-button>
-			   <dom-module id="sample-image-button">
-			   <template>
-  		   <things-image-button  id="imagebutton" item ="[[item]]" title ="[[title]]" image-src ="[[imagepath]]">
-	       </things-image-button>
-			         Data: [[imagedata]]
-			       </template>
-			       <script>
-			        Polymer({
-			          is: 'sample-image-button',
-			          ready:function(){
-			               this.imagepath="./image1.png",
-			               this.title="Pokemon",
-			               this.item={
-			                   name:"Bee",
-			                   color:"yellow"
-			               }
-			             },
-			             listeners: {
-			               'imagebutton.things-image-button-tap': "imageTap",
-			             },
-			             imageTap:function(event){
-			               console.log(event);
-			               this.imagedata= JSON.stringify(event.detail);
-			             }
-			          });
-			     </script>
-			     </dom-module>
+	<sample-image-button></sample-image-button>
+
+	<dom-module id="sample-image-button">
+		<template>
+				<things-image-button  id="imagebutton" item ="[[item]]" title ="[[title]]" image-src ="[[imagepath]]">
+				</things-image-button>
+				     Data: [[imagedata]]
+		</template>
+		<script>
+		Polymer({
+		  is: 'sample-image-button',
+		  ready:function(){
+		       this.imagepath="./image1.png",
+		       this.title="Pokemon",
+		       this.item={
+		           name:"Bee",
+		           color:"yellow"
+		       }
+		     },
+		     listeners: {
+		       'imagebutton.things-image-button-tap': "imageTap",
+		     },
+		     imageTap:function(event){
+		       console.log(event);
+		       this.imagedata= JSON.stringify(event.detail);
+		     }
+		  });
+		 </script>
+	</dom-module>
 ```
 
 
