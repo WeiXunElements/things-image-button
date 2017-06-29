@@ -1,6 +1,6 @@
 # things-image-button
 
-##이미지 클릭하여 data 호출하는 컴퍼넌트.
+## This is a component that calls the data by clicking the image.
 
 Example:
 
@@ -44,8 +44,7 @@ Example:
 
 ## Dependencies
 
-Element dependencies are managed via [Bower](http://bower.io/). You can
-install that via:
+Element dependencies are managed via [Bower](http://bower.io/). You can install that via:
 
     npm install -g bower
 

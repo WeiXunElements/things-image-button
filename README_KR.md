@@ -1,6 +1,6 @@
 # things-image-button
 
-##이미지 클릭하여 data 호출하는 컴퍼넌트.
+## 이는 이미지를 클릭하여 데이터를 호출하는 컴포넌트이다.
 
 Example:
 
