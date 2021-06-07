@@ -1,55 +1,53 @@
 <!--
 @license
-Copyright © HatioLab Inc. All rights reserved.
+Copyright © 2015-2021 Shenzhen Weixun All rights reserved.
 -->
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes" />
+    <title>things-trisate-radio demo</title>
+    <script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="../../polymer/polymer.html" />
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html" />
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html" />
+    <link rel="import" href="../../paper-button/paper-button.html" />
+    <link rel="import" href="../things-image-button.html" />
+  </head>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
-  <title>things-trisate-radio demo</title>
-  <script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
-  <link rel="import" href="../../polymer/polymer.html">
-  <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
-  <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
-  <link rel="import" href="../../paper-button/paper-button.html">
-  <link rel="import" href="../things-image-button.html">
-</head>
-
-<body unresolved>
-  <demo-snippet class="centered-demo">
-    <template>
-<sample-image-button></sample-image-button>
-    <dom-module id="sample-image-button">
+  <body unresolved>
+    <demo-snippet class="centered-demo">
       <template>
-        <things-image-button  id="imagebutton" item ="[[item]]" title ="[[title]]" image-src ="[[imagepath]]">
-        </things-image-button>
-         Data: [[imagedata]]
+        <sample-image-button></sample-image-button>
+        <dom-module id="sample-image-button">
+          <template>
+            <things-image-button id="imagebutton" item="[[item]]" title="[[title]]" image-src="[[imagepath]]">
+            </things-image-button>
+            Data: [[imagedata]]
+          </template>
+          <script>
+            Polymer({
+              is: 'sample-image-button',
+              ready: function () {
+                (this.imagepath = './image1.png'),
+                  (this.title = 'Pokemon'),
+                  (this.item = {
+                    name: 'Bee',
+                    color: 'yellow',
+                  });
+              },
+              listeners: {
+                'imagebutton.things-image-button-tap': 'imageTap',
+              },
+              imageTap: function (event) {
+                console.log(event);
+                this.imagedata = JSON.stringify(event.detail);
+              },
+            });
+          </script>
+        </dom-module>
       </template>
-      <script>
-        Polymer({
-          is: 'sample-image-button',
-          ready:function(){
-               this.imagepath="./image1.png",
-               this.title="Pokemon",
-               this.item={
-                   name:"Bee",
-                   color:"yellow"
-               }
-             },
-             listeners: {
-               'imagebutton.things-image-button-tap': "imageTap",
-             },
-             imageTap:function(event){
-               console.log(event);
-               this.imagedata= JSON.stringify(event.detail);
-             }
-        });
-      </script>
-    </dom-module>
-    </template>
-  </demo-snippet>
-
-</body>
+    </demo-snippet>
+  </body>
 </html>

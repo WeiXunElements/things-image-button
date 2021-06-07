@@ -1,8 +1,8 @@
 {
   "name": "things-image-button",
-  "version": "v2.2.0",
+  "version": "v2.2.1",
   "authors": [
-    "Hatio Lab. <heartyoh@hatiolab.com>"
+    "Shenzhen Weixun"
   ],
   "description": "An element to design image and title.",
   "keywords": [
@@ -11,8 +11,6 @@
     "seed"
   ],
   "main": "things-image-button.html",
-  "license": "http://license.hatiolab.com/EULA",
-  "homepage": "http://elements.hatiolab.com/",
   "ignore": [
     "/.*",
     "/test/"
